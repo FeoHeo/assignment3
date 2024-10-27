@@ -100,7 +100,7 @@ public class assignment3 {
             }
 
             // Update bookNextNode pointers
-            if (bookNumber > 0) {
+            if (bookNumber > 1) {
                 ListNode currentNode = sharedList.head;
                 while (currentNode != null && currentNode.bookNextNode != null) {
                     currentNode = currentNode.bookNextNode;
