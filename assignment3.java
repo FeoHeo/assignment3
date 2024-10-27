@@ -28,7 +28,7 @@ public class assignment3 {
 
         SharedList() {
             this.head = null;
-            this.bookCounter = 0;
+            this.bookCounter = 1;
             this.lock = new ReentrantLock();
         }
     }
