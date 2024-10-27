@@ -5,7 +5,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class assignment3 {
-    private static final int PORT = 12345;
+    private static String WORD = "happy";
+    private static int PORT = 12345;
     private static final int BUFFER_SIZE = 1024;
     private static final int MAX_CONNECTIONS = 10;
     private static final String FILENAME_FORMAT = "book_%02d.txt";
@@ -129,6 +130,7 @@ public class assignment3 {
             System.out.println("Server listening on port " + PORT);
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("Incoming connection from: " + clientSocket.getPort());
                 new Thread(new ClientHandler(clientSocket, sharedList)).start();
             }
         } catch (IOException e) {
@@ -137,6 +139,26 @@ public class assignment3 {
     }
 
     public static void main(String[] args) {
+        for(int i=0 ; i<args.length; i++) {
+            if(args[i].equals("-l")) {
+                try {
+                    PORT = Integer.parseInt(args[i+1]);
+                } catch (Exception e) {
+                    System.err.println("No port provided, using default port");
+                }
+            }
+
+            if(args[i].equals("-s")) {
+                try {
+                    WORD = args[i+1];
+                } catch (Exception e) {
+                    System.err.println("No search string provided, using default search " + WORD);
+                }
+            }
+
+        }
+        
+
         SharedList sharedList = new SharedList();
         startServer(sharedList);
     }
