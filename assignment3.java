@@ -125,8 +125,8 @@ public class assignment3 {
 
                 currentNode = sharedList.head;
                 while (currentNode.bookNextNode != null) {   // Iterate to where bookNextNode is null
-                    System.out.println("bookNextNode adress: " + currentNode.bookNextNode.toString());
-                    System.err.println("currNode content: " + currentNode.line);
+                    // System.out.println("bookNextNode adress: " + currentNode.bookNextNode.toString()); // Debug print
+                    // System.err.println("currNode content: " + currentNode.line);
                     currentNode = currentNode.bookNextNode;
                 }
                 if (currentNode.bookNum == bookNumber) { // Check if it belongs to the same book
