@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -22,6 +23,7 @@ public class assignment3 {
             this.bookNum = number;
         };
     }
+    ArrayList<ListNode> headList = new ArrayList<ListNode>();   // Store the node heads
 
     static class SharedList {
         ListNode head;             // Head of the linked list for each book
